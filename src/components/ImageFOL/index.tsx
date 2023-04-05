@@ -29,7 +29,7 @@ function ImageFOL({ month }: IImageFOL) {
     >
       <StyledTestImage>
         <Image
-          src={imageFolderDetailData[0]}
+          src={imageFolderDetailData[0].storeFileName}
           alt="imageDetail"
           fill
           style={{

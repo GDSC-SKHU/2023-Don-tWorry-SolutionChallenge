@@ -7,21 +7,33 @@ import {
   defaultFadeInLeftVariants,
   defaultFadeInUpVariants,
 } from "src/constants/motion";
+import PhotoDetail from "src/pages/ImageFolder/Detail/PhotoDetail";
 import styled, { css } from "styled-components";
-interface IImageDetail {
-  imageSrc: string;
-}
-function ImageDetail({ imageSrc }: IImageDetail) {
+
+interface IImageSrc {}
+
+function ImageDetail({ imageSrc }: any) {
+  const router = useRouter();
+  function onClickImage() {
+    router.push({
+      pathname: "/ImageFolder/Detail/PhotoDetail",
+      query: {
+        imageSrc: imageSrc.storeFileName,
+        downloadSrc: imageSrc.uploadFileName,
+      },
+    });
+  }
   return (
     <StyledImageDetail
       initial="initial"
       animate="animate"
       exit="exit"
       variants={defaultFadeInUpVariants}
+      onClick={onClickImage}
     >
-      <StyledTestImage>
-        <Image src={imageSrc} alt="imageDetail" fill />
-      </StyledTestImage>
+      <StyledImageWrapper>
+        <Image src={imageSrc.storeFileName as string} alt="imageDetail" fill />
+      </StyledImageWrapper>
       {/* 
       <StyledTestImage bgSrc={imageSrc} /> */}
     </StyledImageDetail>
@@ -39,7 +51,7 @@ const StyledImageDetail = styled(motion.div)`
 
   padding: 0.125rem;
 `;
-const StyledTestImage = styled.div`
+const StyledImageWrapper = styled.div`
   width: 100%;
   padding-bottom: 100%;
 `;

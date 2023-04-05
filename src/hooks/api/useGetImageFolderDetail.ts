@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { instance } from "src/constants/appClient";
 
 function useGetImageFolderDetail(folderDate: string) {
-  const [imageFolderDetailData, setImageFolderData] = useState([]);
+  const [imageFolderDetailData, setImageFolderData] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   async function getImageFolderData(folderDate: string) {
