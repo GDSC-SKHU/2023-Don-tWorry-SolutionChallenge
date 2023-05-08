@@ -31,7 +31,7 @@ function Law() {
           {lawData.map((data, i) => (
             <LawContent
               key={i}
-              form={data.lawName}
+              form={data.form}
               policy={data.policy}
               law={data.lawName}
               punishment={data.punishments}
